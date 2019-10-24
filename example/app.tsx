@@ -7,6 +7,7 @@ import { Editor } from "slate-react"
 import { Button } from "@material-ui/core"
 import { HTML_RULES } from "../src/html"
 import Html from "slate-html-serializer"
+import { schema } from "../src/schema"
 
 export const serializer = new Html({ rules: HTML_RULES })
 
@@ -38,6 +39,7 @@ const MyEditor: FC = () => {
         onChange={onChange}
         value={value}
         plugins={plugins}
+        schema={schema}
         spellCheck
         autoFocus
       />

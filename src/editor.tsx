@@ -21,6 +21,7 @@ import {
 } from "./block-html"
 import { Value } from "slate"
 import { LinkButton, LinkPlugin } from "./link"
+import { ImgButton } from "./image"
 
 export const SlateEditorContext = React.createContext<SlateReactEditor>(
   (null as any) as SlateReactEditor
@@ -61,6 +62,7 @@ export const Toolbar: FC = () => {
       <MarkUnderlinedButton />
 
       <LinkButton />
+      <ImgButton />
 
       <BlockH1Button />
       <BlockH2Button />
