@@ -1,18 +1,19 @@
 import {
   Button,
+  ButtonProps,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  TextField,
   MenuItem,
+  TextField,
 } from "@material-ui/core"
 import Link from "@material-ui/icons/Link"
 import isUrl from "is-url"
 import React, { FC, useState } from "react"
-import { Editor, Element as SlateElement, Text, Node, Range, Command, Path } from "slate"
-import { useSlate, RenderElementProps } from "slate-react"
-import { ToolbarButton, TToolbarButtonProps } from "./toolbar-button"
+import { Command, Editor, Element as SlateElement, Node, Path, Range, Text } from "slate"
+import { RenderElementProps, useSlate } from "slate-react"
+import { ToolbarButton } from "./toolbar-button"
 
 export const LINK_INLINE_TYPE = "a"
 export const SET_LINK_COMMAND = "set_link"
@@ -123,7 +124,7 @@ export const HtmlAnchorElement: FC<RenderElementProps> = ({ attributes, children
   return React.createElement(LINK_INLINE_TYPE, resultAttributes, children)
 }
 
-type TLinkButtonProps = {} & Omit<TToolbarButtonProps, "tooltipTitle">
+type TLinkButtonProps = {} & ButtonProps
 export const LinkButton: FC<TLinkButtonProps> = ({ ...rest }) => {
   const editor = useSlate()
   const isActive = isLinkActive(editor)
